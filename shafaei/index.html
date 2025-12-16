@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shafaei Textile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.rtl.min.css">
+    <style>
+        :root {
+            --primary-color: #f8f9fa;
+            --secondary-color: #8d6e63;
+            --accent-color: #a1887f;
+            --text-dark: #333;
+            --text-light: #777;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazir', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #fefefe;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* نوار بالایی */
+        .top-bar {
+            background-color: var(--primary-color);
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            color: white;
+        }
+        
+        .language-switcher {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: 1px solid #ddd;
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .lang-btn.active {
+            background-color: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+        
+        .telegram-cta {
+            background: linear-gradient(135deg, #0088cc, #34aadc);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .telegram-cta:hover {
+            background: linear-gradient(135deg, #0077b5, #2a91c5);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        /* نویگیشن */
+        .navbar {
+            padding: 0;
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            padding: 20px 15px !important;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--secondary-color) !important;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+        
+        /* هیرو اسلایدر */
+        .hero-slider {
+            height: 85vh;
+            min-height: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-1 {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./images/banner1.jpg');
+        }
+        
+        .slide-2 {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./images/banner2.jpg');
+        }
+        
+        .slide-3 {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./images/banner3.jpg');
+        }
+        
+        .hero-content {
+            color: white;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .btn-primary-custom {
+            background-color: white;
+            color: var(--secondary-color);
+            border: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            color: var(--secondary-color);
+        }
+        
+        .slider-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .slider-dot.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+        
+        /* بخش ویژگی‌ها */
+        .features {
+            padding: 100px 0;
+            background-color: var(--primary-color);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--secondary-color);
+            font-weight: 300;
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .feature-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        
+        .feature-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        /* محصولات ویژه */
+        .featured-products {
+            padding: 100px 0;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            margin-bottom: 30px;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+        
+        .product-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .telegram-btn {
+            background-color: #0088cc;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .telegram-btn:hover {
+            background-color: #0077b5;
+            transform: translateY(-2px);
+        }
+        
+        .view-all-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        /* درباره ما */
+        .about-us {
+            padding: 100px 0;
+            background-color: var(--primary-color);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-title {
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        .about-description {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* خدمات */
+        .services {
+            padding: 100px 0;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+        }
+        
+        .service-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        
+        /* تماس فوری */
+        .quick-contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            color: white;
+            text-align: center;
+        }
+        
+        .contact-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        .contact-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        
+        /* فوتر */
+        footer {
+            background-color: #222;
+            padding: 60px 0 30px;
+            color: white;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-description {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+        
+        .footer-contact {
+            margin-top: 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #aaa;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h5 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* انیمیشن‌ها */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* ریسپانسیو */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image, .about-text {
+                flex: none;
+                width: 100%;
+            }
+            
+            .stats {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-slider {
+                height: 70vh;
+                min-height: 500px;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary-custom, .telegram-cta {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .stats {
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+            
+            .stat-item {
+                flex: 0 0 45%;
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .logo-icon {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .stat-item {
+                flex: 0 0 100%;
+            }
+        }
+        
+        /* استایل برای حالت انگلیسی */
+        body[dir="ltr"] .footer-links a:hover {
+            transform: translateX(-5px);
+        }
+        
+        body[dir="ltr"] .section-title::after {
+            left: 0;
+            transform: none;
+        }
+        
+        /* لینک روی کارت محصول */
+        .product-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            text-decoration: none;
+        }
+        
+        .view-all-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .view-all-btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        /* استایل برای عکس‌های پیش‌فرض */
+        .product-img .default-img {
+            width: 80%;
+            height: auto;
+            opacity: 0.7;
+        }
+        
+        /* استایل برای نمایش خطا */
+        .image-error {
+            color: #999;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- نوار بالایی -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        Shafaei<span>Towels</span>
+                    </a>
+                    <div class="language-switcher ms-4">
+                        <button class="lang-btn active" data-lang="fa">فارسی</button>
+                        <button class="lang-btn" data-lang="en">English</button>
+                    </div>
+                </div>
+                <a href="https://t.me/shafaei_towels" class="telegram-cta">
+                    <i class="fab fa-telegram-plane me-2"></i> <span class="telegram-text">ارتباط در تلگرام</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نویگیشن -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><span class="nav-text">صفحه اصلی</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- تغییر 1: لینک منوی محصولات به products_all.html -->
+                        <a class="nav-link" href="products_all.html"><span class="nav-text">محصولات</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./about.html"><span class="nav-text">درباره ما</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services"><span class="nav-text">خدمات</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact"><span class="nav-text">تماس با ما</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- هیرو اسلایدر -->
+    <section class="hero-slider">
+        <div class="slide slide-1 active">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">حوله‌های لوکس و با کیفیت</h1>
+                    <p class="hero-subtitle">با بیش از ۷۶ مدل حوله در طرح‌ها، رنگ‌ها و سایزهای مختلف. لذت نرمی و جذب فوق‌العاده را با حوله‌های شفاعی تجربه کنید.</p>
+                    <div class="hero-buttons">
+                        <a href="#products" class="btn-primary-custom">
+                            <i class="fas fa-eye me-2"></i> <span class="btn-view-text">مشاهده محصولات</span>
+                        </a>
+                        <a href="https://t.me/shafaei_towels" class="telegram-cta">
+                            <i class="fab fa-telegram-plane me-2"></i> <span class="btn-telegram-text">ارتباط در تلگرام</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide slide-2">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">نرمی بی‌نظیر، جذب فوق‌العاده</h1>
+                    <p class="hero-subtitle">از پنبه مرغوب تا میکروفایبر پیشرفته، هر حوله شفاعی داستان راحتی و لطافت را برای شما روایت می‌کند.</p>
+                    <div class="hero-buttons">
+                        <a href="./about.html" class="btn-primary-custom">
+                            <i class="fas fa-info-circle me-2"></i> <span class="btn-about-text">درباره ما</span>
+                        </a>
+                        <a href="https://t.me/shafaei_towels" class="telegram-cta">
+                            <i class="fab fa-telegram-plane me-2"></i> <span class="btn-telegram-text">مشاوره رایگان</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide slide-3">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">تنوع بی‌نظیر در رنگ و طرح</h1>
+                    <p class="hero-subtitle">از حوله کودک تا حوله استخر، از سایز متوسط تا خانوادگی. هر سلیقه‌ای در مجموعه شفاعی پاسخ داده شده است.</p>
+                    <div class="hero-buttons">
+                        <a href="#products" class="btn-primary-custom">
+                            <i class="fas fa-shopping-bag me-2"></i> <span class="btn-shop-text">خرید آنلاین</span>
+                        </a>
+                        <a href="https://t.me/shafaei_towels" class="telegram-cta pulse">
+                            <i class="fab fa-telegram-plane me-2"></i> <span class="btn-order-text">سفارش سریع</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slider-controls">
+            <div class="slider-dot active" data-slide="0"></div>
+            <div class="slider-dot" data-slide="1"></div>
+            <div class="slider-dot" data-slide="2"></div>
+        </div>
+    </section>
+    
+    <!-- ویژگی‌ها -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title"><span class="section-features-text">چرا حوله شفاعی؟</span></h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-feather"></i>
+                        </div>
+                        <h3 class="feature-title"><span class="feature-1-title">نرمی بی‌نظیر</span></h3>
+                        <p class="feature-description"><span class="feature-1-desc">حوله‌هایی با لطافت ابریشم و نرمی بی‌نظیر برای پوست‌های حساس</span></p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3 class="feature-title"><span class="feature-2-title">جذب فوق‌العاده</span></h3>
+                        <p class="feature-description"><span class="feature-2-desc">قابلیت جذب آب تا ۸ برابر وزن خود، خشک‌کنی سریع و کامل</span></p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3 class="feature-title"><span class="feature-3-title">تنوع رنگ و طرح</span></h3>
+                        <p class="feature-description"><span class="feature-3-desc">بیش از ۷۶ مدل در رنگ‌ها و طرح‌های مختلف برای هر سلیقه‌ای</span></p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="feature-title"><span class="feature-4-title">کیفیت تضمینی</span></h3>
+                        <p class="feature-description"><span class="feature-4-desc">دوخت دقیق، مواد اولیه درجه یک و ماندگاری طولانی مدت</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- محصولات ویژه -->
+    <section class="featured-products" id="products">
+        <div class="container">
+            <h2 class="section-title"><span class="section-products-text">محصولات پرفروش</span></h2>
+            <div class="row g-4" id="featured-products-container">
+                <!-- محصولات ویژه توسط جاوااسکریپت تولید می‌شوند -->
+            </div>
+            <div class="view-all-container">
+                <!-- تغییر 2: دکمه مشاهده همه محصولات به products_all.html -->
+                <a href="products_all.html" class="view-all-btn">
+                    <i class="fas fa-list me-2"></i> <span class="view-all-text">مشاهده همه محصولات (۷۶ مدل)</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- درباره ما -->
+    <section class="about-us" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="./images/2.jpg" alt="درباره حوله شفاعی">
+                </div>
+                <div class="about-text">
+                    <h2 class="about-title"><span class="about-title-text">داستان حوله شفاعی</span></h2>
+                    <p class="about-description"><span class="about-desc-1">با بیش از دو دهه تجربه در تولید حوله‌های با کیفیت، برند شفاعی همواره به عنوان پیشرو در صنعت حوله‌بافی ایران شناخته شده است. ما اعتقاد داریم که حوله تنها یک وسیله خشک‌کن نیست، بلکه تجربه‌ای از لطافت و راحتی است که روز شما را می‌سازد.</span></p>
+                    <p class="about-description"><span class="about-desc-2">با استفاده از بهترین مواد اولیه و تکنولوژی‌های روز دنیا، حوله‌های شفاعی را تولید می‌کنیم که نه تنها در نرمی و جذب بی‌نظیر هستند، بلکه در طول زمان کیفیت خود را حفظ می‌کنند.</span></p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">۲۰+</span>
+                            <span class="stat-label"><span class="stat-1-label">سال تجربه</span></span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">۷۶+</span>
+                            <span class="stat-label"><span class="stat-2-label">مدل محصول</span></span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">۵۰۰۰+</span>
+                            <span class="stat-label"><span class="stat-3-label">مشتری راضی</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- خدمات -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title"><span class="section-services-text">خدمات ما</span></h2>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h3 class="service-title"><span class="service-1-title">ارسال سریع</span></h3>
+                        <p class="feature-description"><span class="service-1-desc">ارسال به تمام نقاط کشور در کمترین زمان ممکن با بسته‌بندی مناسب</span></p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="service-title"><span class="service-2-title">پشتیبانی ۲۴/۷</span></h3>
+                        <p class="feature-description"><span class="service-2-desc">پاسخگویی به سوالات شما از طریق تلگرام در هر ساعت از شبانه روز</span></p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h3 class="service-title"><span class="service-3-title">هدیه ویژه</span></h3>
+                        <p class="feature-description"><span class="service-3-desc">هدیه رایگان با خریدهای بالای ۵۰۰ هزار تومان و بسته‌بندی هدیه ویژه</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- تماس فوری -->
+    <section class="quick-contact" id="contact">
+        <div class="container">
+            <h2 class="contact-title"><span class="contact-title-text">آماده پاسخگویی به شما هستیم</span></h2>
+            <p class="contact-description"><span class="contact-desc-text">برای دریافت مشاوره رایگان، استعلام قیمت و ثبت سفارش، از طریق تلگرام با ما در ارتباط باشید. تیم پشتیبانی ما در کمترین زمان ممکن پاسخگوی شما خواهد بود.</span></p>
+            <a href="https://t.me/shafaei_towels" class="telegram-cta" style="padding: 16px 40px; font-size: 1.2rem;">
+                <i class="fab fa-telegram-plane me-2"></i> <span class="contact-telegram-text">شروع گفتگو در تلگرام</span>
+            </a>
+        </div>
+    </section>
+    
+    <!-- فوتر -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-logo">
+                        <div class="logo-icon" style="width: 35px; height: 35px; margin-left: 0; margin-right: 10px;">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        Shafaei<span>Towels</span>
+                    </div>
+                    <p class="footer-description"><span class="footer-desc-text">تولیدکننده حوله‌های با کیفیت با بیش از دو دهه تجربه. حوله شفاعی، نرمی و لطافت را به خانه شما می‌آورد.</span></p>
+                    
+                    <div class="footer-contact">
+                        <div class="contact-info">
+                            <i class="fas fa-phone"></i>
+                            <span class="footer-phone-text">برای خرید و استعلام قیمت فقط از طریق تلگرام</span>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://t.me/shafaei_towels" class="social-icon"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5><span class="footer-links-1-title">دسترسی سریع</span></h5>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-chevron-left"></i> <span class="footer-link-1">صفحه اصلی</span></a></li>
+                            <!-- تغییر 3: لینک محصولات در فوتر به products_all.html -->
+                            <li><a href="products_all.html"><i class="fas fa-chevron-left"></i> <span class="footer-link-2">محصولات</span></a></li>
+                            <li><a href="#about"><i class="fas fa-chevron-left"></i> <span class="footer-link-3">درباره ما</span></a></li>
+                            <li><a href="#services"><i class="fas fa-chevron-left"></i> <span class="footer-link-4">خدمات</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5><span class="footer-links-2-title">دسته‌بندی محصولات</span></h5>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-chevron-left"></i> <span class="footer-cat-1">حوله حمام</span></a></li>
+                            <li><a href="#"><i class="fas fa-chevron-left"></i> <span class="footer-cat-2">حوله استخر</span></a></li>
+                            <li><a href="#"><i class="fas fa-chevron-left"></i> <span class="footer-cat-3">حوله ورزشی</span></a></li>
+                            <li><a href="#"><i class="fas fa-chevron-left"></i> <span class="footer-cat-4">حوله کودک</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5><span class="footer-links-3-title">اطلاعات تماس</span></h5>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-map-marker-alt"></i> <span class="footer-contact-1">تبریز , باسمنج , جاده ابریشم</span></a></li>
+                            <li><a href="https://t.me/shafaei_towels"><i class="fab fa-telegram"></i> <span class="footer-contact-2">@shafaei_towels</span></a></li>
+                            <li><a href="mailto:info@shafaei.com"><i class="fas fa-envelope"></i> <span class="footer-contact-3">info@shafaei.com</span></a></li>
+                            <li><a href="#"><i class="fas fa-clock"></i> <span class="footer-contact-4">پشتیبانی ۲۴ ساعته</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p class="copyright-text">تمامی حقوق برای فروشگاه حوله شفاعی محفوظ است. © ۱۴۰۳</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // داده‌های ترجمه
+        const translations = {
+            fa: {
+                // هدر اسلایدر
+                heroTitle1: "حوله‌های لوکس و با کیفیت",
+                heroSubtitle1: "با بیش از ۷۶ مدل حوله در طرح‌ها، رنگ‌ها و سایزهای مختلف. لذت نرمی و جذب فوق‌العاده را با حوله‌های شفاعی تجربه کنید.",
+                btnViewProducts: "مشاهده محصولات",
+                btnTelegram: "ارتباط در تلگرام",
+                
+                heroTitle2: "نرمی بی‌نظیر، جذب فوق‌العاده",
+                heroSubtitle2: "از پنبه مرغوب تا میکروفایبر پیشرفته، هر حوله شفاعی داستان راحتی و لطافت را برای شما روایت می‌کند.",
+                btnAbout: "درباره ما",
+                btnConsultation: "مشاوره رایگان",
+                
+                heroTitle3: "تنوع بی‌نظیر در رنگ و طرح",
+                heroSubtitle3: "از حوله کودک تا حوله استخر، از سایز متوسط تا خانوادگی. هر سلیقه‌ای در مجموعه شفاعی پاسخ داده شده است.",
+                btnShop: "خرید آنلاین",
+                btnOrder: "سفارش سریع",
+                
+                // نویگیشن
+                navHome: "صفحه اصلی",
+                navProducts: "محصولات",
+                navAbout: "درباره ما",
+                navServices: "خدمات",
+                navContact: "تماس با ما",
+                
+                // ویژگی‌ها
+                sectionFeatures: "چرا حوله شفاعی؟",
+                feature1Title: "نرمی بی‌نظیر",
+                feature1Desc: "حوله‌هایی با لطافت ابریشم و نرمی بی‌نظیر برای پوست‌های حساس",
+                feature2Title: "جذب فوق‌العاده",
+                feature2Desc: "قابلیت جذب آب تا ۸ برابر وزن خود، خشک‌کنی سریع و کامل",
+                feature3Title: "تنوع رنگ و طرح",
+                feature3Desc: "بیش از ۷۶ مدل در رنگ‌ها و طرح‌های مختلف برای هر سلیقه‌ای",
+                feature4Title: "کیفیت تضمینی",
+                feature4Desc: "دوخت دقیق، مواد اولیه درجه یک و ماندگاری طولانی مدت",
+                
+                // محصولات
+                sectionProducts: "محصولات پرفروش",
+                viewAll: "مشاهده همه محصولات (۷۶ مدل)",
+                
+                // درباره ما
+                aboutTitle: "داستان حوله شفاعی",
+                aboutDesc1: "با بیش از دو دهه تجربه در تولید حوله‌های با کیفیت، برند شفاعی همواره به عنوان پیشرو در صنعت حوله‌بافی ایران شناخته شده است. ما اعتقاد داریم که حوله تنها یک وسیله خشک‌کن نیست، بلکه تجربه‌ای از لطافت و راحتی است که روز شما را می‌سازد.",
+                aboutDesc2: "با استفاده از بهترین مواد اولیه و تکنولوژی‌های روز دنیا، حوله‌های شفاعی را تولید می‌کنیم که نه تنها در نرمی و جذب بی‌نظیر هستند، بلکه در طول زمان کیفیت خود را حفظ می‌کنند.",
+                stat1Label: "سال تجربه",
+                stat2Label: "مدل محصول",
+                stat3Label: "مشتری راضی",
+                
+                // خدمات
+                sectionServices: "خدمات ما",
+                service1Title: "ارسال سریع",
+                service1Desc: "ارسال به تمام نقاط کشور در کمترین زمان ممکن با بسته‌بندی مناسب",
+                service2Title: "پشتیبانی ۲۴/۷",
+                service2Desc: "پاسخگویی به سوالات شما از طریق تلگرام در هر ساعت از شبانه روز",
+                service3Title: "هدیه ویژه",
+                service3Desc: "هدیه رایگان با خریدهای بالای ۵۰۰ هزار تومان و بسته‌بندی هدیه ویژه",
+                
+                // تماس فوری
+                contactTitle: "آماده پاسخگویی به شما هستیم",
+                contactDesc: "برای دریافت مشاوره رایگان، استعلام قیمت و ثبت سفارش، از طریق تلگرام با ما در ارتباط باشید. تیم پشتیبانی ما در کمترین زمان ممکن پاسخگوی شما خواهد بود.",
+                contactTelegram: "شروع گفتگو در تلگرام",
+                
+                // فوتر
+                footerDesc: "تولیدکننده حوله‌های با کیفیت با بیش از دو دهه تجربه. حوله شفاعی، نرمی و لطافت را به خانه شما می‌آورد.",
+                footerPhone: "برای خرید و استعلام قیمت فقط از طریق تلگرام",
+                
+                footerLinks1Title: "دسترسی سریع",
+                footerLink1: "صفحه اصلی",
+                footerLink2: "محصولات",
+                footerLink3: "درباره ما",
+                footerLink4: "خدمات",
+                
+                footerLinks2Title: "دسته‌بندی محصولات",
+                footerCat1: "حوله حمام",
+                footerCat2: "حوله استخر",
+                footerCat3: "حوله ورزشی",
+                footerCat4: "حوله کودک",
+                
+                footerLinks3Title: "اطلاعات تماس",
+                footerContact1: "تبریز , باسمنج , جاده ابریشم",
+                footerContact2: "@shafaei_towels",
+                footerContact3: "info@shafaei.com",
+                footerContact4: "پشتیبانی ۲۴ ساعته",
+                
+                copyright: "تمامی حقوق برای فروشگاه حوله شفاعی محفوظ است. © ۱۴۰۳",
+                
+                // نوار بالایی
+                telegramCta: "ارتباط در تلگرام"
+            },
+            en: {
+                // هدر اسلایدر
+                heroTitle1: "Luxury and Quality Towels",
+                heroSubtitle1: "Experience softness and superior absorption with Shafaei towels. Over 76 models in various designs, colors, and sizes.",
+                btnViewProducts: "View Products",
+                btnTelegram: "Contact on Telegram",
+                
+                heroTitle2: "Unmatched Softness, Exceptional Absorption",
+                heroSubtitle2: "From premium cotton to advanced microfiber, every Shafaei towel tells a story of comfort and tenderness.",
+                btnAbout: "About Us",
+                btnConsultation: "Free Consultation",
+                
+                heroTitle3: "Unparalleled Variety in Colors and Designs",
+                heroSubtitle3: "From kids towels to pool towels, from medium to family size. Every taste is catered for in the Shafaei collection.",
+                btnShop: "Shop Online",
+                btnOrder: "Quick Order",
+                
+                // نویگیشن
+                navHome: "Home",
+                navProducts: "Products",
+                navAbout: "About Us",
+                navServices: "Services",
+                navContact: "Contact",
+                
+                // ویژگی‌ها
+                sectionFeatures: "Why Shafaei Towels?",
+                feature1Title: "Unmatched Softness",
+                feature1Desc: "Towels with silk-like tenderness and unparalleled softness for sensitive skin",
+                feature2Title: "Exceptional Absorption",
+                feature2Desc: "Ability to absorb water up to 8 times its weight, quick and complete drying",
+                feature3Title: "Color & Design Variety",
+                feature3Desc: "Over 76 models in different colors and designs for every taste",
+                feature4Title: "Guaranteed Quality",
+                feature4Desc: "Precise stitching, first-grade materials and long-lasting durability",
+                
+                // محصولات
+                sectionProducts: "Best Selling Products",
+                viewAll: "View All Products (76 Models)",
+                
+                // درباره ما
+                aboutTitle: "The Shafaei Towels Story",
+                aboutDesc1: "With over two decades of experience in producing quality towels, the Shafaei brand has always been recognized as a pioneer in Iran's towel weaving industry. We believe that a towel is not just a drying tool, but an experience of softness and comfort that makes your day.",
+                aboutDesc2: "Using the best raw materials and modern technologies, we produce Shafaei towels that are not only unparalleled in softness and absorption, but also maintain their quality over time.",
+                stat1Label: "Years Experience",
+                stat2Label: "Product Models",
+                stat3Label: "Satisfied Customers",
+                
+                // خدمات
+                sectionServices: "Our Services",
+                service1Title: "Fast Delivery",
+                service1Desc: "Delivery to all parts of the country in the shortest possible time with proper packaging",
+                service2Title: "24/7 Support",
+                service2Desc: "Answering your questions via Telegram at any time of day or night",
+                service3Title: "Special Gift",
+                service3Desc: "Free gift with purchases over 500,000 Tomans and special gift packaging",
+                
+                // تماس فوری
+                contactTitle: "Ready to Assist You",
+                contactDesc: "For free consultation, price inquiries and order registration, contact us via Telegram. Our support team will respond to you in the shortest possible time.",
+                contactTelegram: "Start Chat on Telegram",
+                
+                // فوتر
+                footerDesc: "Quality towel manufacturer with over two decades of experience. Shafaei brings softness and tenderness to your home.",
+                footerPhone: "For purchase and price inquiries only via Telegram",
+                
+                footerLinks1Title: "Quick Links",
+                footerLink1: "Home",
+                footerLink2: "Products",
+                footerLink3: "About Us",
+                footerLink4: "Services",
+                
+                footerLinks2Title: "Product Categories",
+                footerCat1: "Bath Towels",
+                footerCat2: "Pool Towels",
+                footerCat3: "Sport Towels",
+                footerCat4: "Kids Towels",
+                
+                footerLinks3Title: "Contact Information",
+                footerContact1: "Tehran, Valiasr Street",
+                footerContact2: "@shafaei_towels",
+                footerContact3: "info@shafaei.com",
+                footerContact4: "24/7 Support",
+                
+                copyright: "All rights reserved for Shafaei Towels Store. © 2024",
+                
+                // نوار بالایی
+                telegramCta: "Contact on Telegram"
+            }
+        };
+
+        // داده‌های محصولات ویژه - با عکس‌های محلی شما
+        // **تغییر مهم: اضافه کردن پسوند .jpg به مسیر عکس‌ها**
+        const featuredProducts = [
+            {
+                id: 1, 
+                name: {fa: "حوله حمام پنبه‌ای طرح کلاسیک", en: "Classic Design Cotton Bath Towel"}, 
+                category: "bath", 
+                description: {fa: "حوله با جذب فوق‌العاده و نرمی منحصر به فرد", en: "Towel with exceptional absorption and unique softness"}, 
+                img: "images/1.jpg", // اضافه کردن پسوند .jpg
+                price: {fa: "۱۵۰,۰۰۰ تومان", en: "150,000 Toman"}
+            },
+            {
+                id: 2, 
+                name: {fa: "حوله استخر سریع خشک شو", en: "Quick Dry Pool Towel"}, 
+                category: "pool", 
+                description: {fa: "حوله سبک با قابلیت خشک شدن سریع", en: "Lightweight towel with quick-drying capability"}, 
+                img: "images/2.jpg", // اضافه کردن پسوند .jpg
+                price: {fa: "۱۲۰,۰۰۰ تومان", en: "120,000 Toman"}
+            },
+            {
+                id: 3, 
+                name: {fa: "ست حوله لوکس هتل", en: "Luxury Hotel Towel Set"}, 
+                category: "set", 
+                description: {fa: "ست کامل برای تجربه‌ای هتل‌گونه در خانه", en: "Complete set for a hotel-like experience at home"}, 
+                img: "images/3.jpg", // اضافه کردن پسوند .jpg
+                price: {fa: "۳۵۰,۰۰۰ تومان", en: "350,000 Toman"}
+            },
+            {
+                id: 4, 
+                name: {fa: "حوله کودک طرح حیوانات", en: "Animal Print Kids Towel"}, 
+                category: "kids", 
+                description: {fa: "حوله نرم و لطیف مخصوص کودکان", en: "Soft and gentle towel for children"}, 
+                img: "images/4.jpg", // اضافه کردن پسوند .jpg
+                
+            },
+            // محصولات بیشتر در صورت نیاز
+            {
+                id: 5, 
+                name: {fa: "حوله ورزشی میکروفایبر", en: "Microfiber Sport Towel"}, 
+                category: "sport", 
+                description: {fa: "سبک و مناسب باشگاه و ورزش", en: "Lightweight and suitable for gym and sports"}, 
+                img: "images/1.jpg",
+                
+            },
+            {
+                id: 6, 
+                name: {fa: "حوله ساحلی بزرگ", en: "Large Beach Towel"}, 
+                category: "beach", 
+                description: {fa: "حوله بزرگ با طرح‌های شاد و رنگارنگ", en: "Large towel with cheerful and colorful designs"}, 
+                img: "images/6.jpg",
+                
+            }
+        ];
+
+        // تنظیمات زبان
+        let currentLang = 'fa';
+        let currentSlide = 0;
+        let slideInterval;
+
+        // تغییر زبان
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            // تغییر دکمه‌های زبان
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // تغییر جهت صفحه
+            if (lang === 'fa') {
+                document.body.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'fa');
+            } else {
+                document.body.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', 'en');
+            }
+            
+            // به‌روزرسانی تمام متن‌ها
+            updateTexts();
+            
+            // رندر مجدد محصولات ویژه
+            renderFeaturedProducts();
+        }
+
+        // به‌روزرسانی متن‌ها
+        function updateTexts() {
+            const t = translations[currentLang];
+            
+            // هدر اسلایدر
+            const slides = document.querySelectorAll('.slide');
+            slides[0].querySelector('.hero-title').textContent = t.heroTitle1;
+            slides[0].querySelector('.hero-subtitle').textContent = t.heroSubtitle1;
+            slides[1].querySelector('.hero-title').textContent = t.heroTitle2;
+            slides[1].querySelector('.hero-subtitle').textContent = t.heroSubtitle2;
+            slides[2].querySelector('.hero-title').textContent = t.heroTitle3;
+            slides[2].querySelector('.hero-subtitle').textContent = t.heroSubtitle3;
+            
+            // دکمه‌ها
+            document.querySelector('.btn-view-text').textContent = t.btnViewProducts;
+            document.querySelector('.btn-telegram-text').textContent = t.btnTelegram;
+            slides[1].querySelector('.btn-about-text').textContent = t.btnAbout;
+            slides[1].querySelector('.btn-telegram-text').textContent = t.btnConsultation;
+            slides[2].querySelector('.btn-shop-text').textContent = t.btnShop;
+            slides[2].querySelector('.btn-order-text').textContent = t.btnOrder;
+            
+            // نویگیشن
+            document.querySelectorAll('.nav-text').forEach((el, index) => {
+                const texts = [t.navHome, t.navProducts, t.navAbout, t.navServices, t.navContact];
+                if (texts[index]) el.textContent = texts[index];
+            });
+            
+            // ویژگی‌ها
+            document.querySelector('.section-features-text').textContent = t.sectionFeatures;
+            document.querySelector('.feature-1-title').textContent = t.feature1Title;
+            document.querySelector('.feature-1-desc').textContent = t.feature1Desc;
+            document.querySelector('.feature-2-title').textContent = t.feature2Title;
+            document.querySelector('.feature-2-desc').textContent = t.feature2Desc;
+            document.querySelector('.feature-3-title').textContent = t.feature3Title;
+            document.querySelector('.feature-3-desc').textContent = t.feature3Desc;
+            document.querySelector('.feature-4-title').textContent = t.feature4Title;
+            document.querySelector('.feature-4-desc').textContent = t.feature4Desc;
+            
+            // محصولات
+            document.querySelector('.section-products-text').textContent = t.sectionProducts;
+            document.querySelector('.view-all-text').textContent = t.viewAll;
+            
+            // درباره ما
+            document.querySelector('.about-title-text').textContent = t.aboutTitle;
+            document.querySelector('.about-desc-1').textContent = t.aboutDesc1;
+            document.querySelector('.about-desc-2').textContent = t.aboutDesc2;
+            document.querySelector('.stat-1-label').textContent = t.stat1Label;
+            document.querySelector('.stat-2-label').textContent = t.stat2Label;
+            document.querySelector('.stat-3-label').textContent = t.stat3Label;
+            
+            // خدمات
+            document.querySelector('.section-services-text').textContent = t.sectionServices;
+            document.querySelector('.service-1-title').textContent = t.service1Title;
+            document.querySelector('.service-1-desc').textContent = t.service1Desc;
+            document.querySelector('.service-2-title').textContent = t.service2Title;
+            document.querySelector('.service-2-desc').textContent = t.service2Desc;
+            document.querySelector('.service-3-title').textContent = t.service3Title;
+            document.querySelector('.service-3-desc').textContent = t.service3Desc;
+            
+            // تماس فوری
+            document.querySelector('.contact-title-text').textContent = t.contactTitle;
+            document.querySelector('.contact-desc-text').textContent = t.contactDesc;
+            document.querySelector('.contact-telegram-text').textContent = t.contactTelegram;
+            
+            // فوتر
+            document.querySelector('.footer-desc-text').textContent = t.footerDesc;
+            document.querySelector('.footer-phone-text').textContent = t.footerPhone;
+            document.querySelector('.footer-links-1-title').textContent = t.footerLinks1Title;
+            document.querySelector('.footer-link-1').textContent = t.footerLink1;
+            document.querySelector('.footer-link-2').textContent = t.footerLink2;
+            document.querySelector('.footer-link-3').textContent = t.footerLink3;
+            document.querySelector('.footer-link-4').textContent = t.footerLink4;
+            document.querySelector('.footer-links-2-title').textContent = t.footerLinks2Title;
+            document.querySelector('.footer-cat-1').textContent = t.footerCat1;
+            document.querySelector('.footer-cat-2').textContent = t.footerCat2;
+            document.querySelector('.footer-cat-3').textContent = t.footerCat3;
+            document.querySelector('.footer-cat-4').textContent = t.footerCat4;
+            document.querySelector('.footer-links-3-title').textContent = t.footerLinks3Title;
+            document.querySelector('.footer-contact-1').textContent = t.footerContact1;
+            document.querySelector('.footer-contact-2').textContent = t.footerContact2;
+            document.querySelector('.footer-contact-3').textContent = t.footerContact3;
+            document.querySelector('.footer-contact-4').textContent = t.footerContact4;
+            document.querySelector('.copyright-text').textContent = t.copyright;
+            
+            // نوار بالایی
+            document.querySelector('.telegram-text').textContent = t.telegramCta;
+        }
+
+        // تابع برای بررسی وجود عکس
+        function checkImageExists(imageUrl, callback) {
+            const img = new Image();
+            img.onload = function() {
+                callback(true);
+            };
+            img.onerror = function() {
+                callback(false);
+            };
+            img.src = imageUrl;
+        }
+
+        // تابع برای تولید HTML کارت محصول
+        function createProductCard(product) {
+            const col = document.createElement('div');
+            col.className = 'col-lg-3 col-md-6';
+            
+            // تولید محتوای کارت محصول
+            const cardContent = `
+                <div class="product-card">
+                    <a href="product.html?id=${product.id}" class="product-link"></a>
+                    
+                    <div class="product-img">
+                        <img src="${product.img}" 
+                             alt="${product.name[currentLang]}" 
+                             onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><rect width=\"100\" height=\"100\" fill=\"%23f5f5f5\"/><text x=\"50\" y=\"50\" font-family=\"Arial\" font-size=\"14\" text-anchor=\"middle\" dy=\".3em\" fill=\"%23999\">${currentLang === 'fa' ? 'عکس محصول' : 'Product Image'}</text></svg>';">
+                    </div>
+                    
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name[currentLang]}</h3>
+                        <p class="product-description">${product.description[currentLang]}</p>
+                        
+                        <div class="product-meta">
+                            <span>${currentLang === 'fa' ? 'دسته:' : 'Category:'} ${getCategoryName(product.category, currentLang)}</span>
+                            <span class="product-price">${product.price ? product.price[currentLang] : ''}</span>
+                        </div>
+                        
+                        <button class="telegram-btn" onclick="event.stopPropagation(); inquireProduct(${product.id})">
+                            <i class="fab fa-telegram-plane"></i> 
+                            ${currentLang === 'fa' ? 'استعلام قیمت' : 'Inquire Price'}
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            col.innerHTML = cardContent;
+            return col;
+        }
+
+        // تابع برای نام دسته‌بندی
+        function getCategoryName(category, lang) {
+            const categories = {
+                'bath': {fa: 'حمام', en: 'Bath'},
+                'pool': {fa: 'استخر', en: 'Pool'},
+                'set': {fa: 'ست', en: 'Set'},
+                'kids': {fa: 'کودک', en: 'Kids'},
+                'sport': {fa: 'ورزشی', en: 'Sport'},
+                'beach': {fa: 'ساحلی', en: 'Beach'}
+            };
+            return categories[category]?.[lang] || category;
+        }
+
+        // تابع برای استعلام محصول
+        function inquireProduct(productId) {
+            const product = featuredProducts.find(p => p.id === productId);
+            if (!product) return;
+            
+            const message = currentLang === 'fa' 
+                ? `سلام، درباره محصول "${product.name.fa}" سوال دارم`
+                : `Hi, I have a question about product "${product.name.en}"`;
+            
+            window.open(`https://t.me/shafaei_towels?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // نمایش محصولات ویژه
+        function renderFeaturedProducts() {
+            const container = document.getElementById('featured-products-container');
+            if (!container) return;
+            
+            // پاک کردن محتوای قبلی
+            container.innerHTML = '';
+            
+            // نمایش فقط 4 محصول اول
+            const productsToShow = featuredProducts.slice(0, 4);
+            
+            // ایجاد و اضافه کردن کارت‌های محصول
+            productsToShow.forEach(product => {
+                const productCard = createProductCard(product);
+                container.appendChild(productCard);
+            });
+        }
+
+        // اسلایدر
+        function initSlider() {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            
+            function showSlide(n) {
+                // تمام اسلایدها را مخفی کن
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // اسلاید فعلی را نمایش بده
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+            
+            // کنترل‌های دات
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                    resetInterval();
+                });
+            });
+            
+            // تابع برای تغییر خودکار اسلایدها
+            function nextSlide() {
+                showSlide(currentSlide + 1);
+            }
+            
+            // شروع اینتروال برای تغییر خودکار
+            function startInterval() {
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+            
+            // ریست اینتروال
+            function resetInterval() {
+                clearInterval(slideInterval);
+                startInterval();
+            }
+            
+            // شروع اسلایدر
+            showSlide(0);
+            startInterval();
+            
+            // توقف اسلایدر هنگام هاور
+            const slider = document.querySelector('.hero-slider');
+            slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            slider.addEventListener('mouseleave', startInterval);
+        }
+
+        // بارگذاری اولیه
+        document.addEventListener('DOMContentLoaded', function() {
+            // راه‌اندازی زبان
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    changeLanguage(lang);
+                });
+            });
+            
+            // بارگذاری اولیه فارسی
+            changeLanguage('fa');
+            
+            // راه‌اندازی اسلایدر
+            initSlider();
+            
+            // راه‌اندازی نویگیشن تبلت/موبایل
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarToggler) {
+                navbarToggler.addEventListener('click', function() {
+                    const navbar = document.getElementById('navbarNav');
+                    navbar.classList.toggle('show');
+                });
+            }
+            
+            // انیمیشن اسکرول
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                    }
+                });
+            }, observerOptions);
+            
+            // مشاهده عناصر برای انیمیشن
+            document.querySelectorAll('.feature-card, .product-card, .service-card').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // بارگذاری محصولات
+            renderFeaturedProducts();
+        });
+
+        // افزودن استایل برای قیمت محصول
+        const priceStyle = document.createElement('style');
+        priceStyle.textContent = `
+            .product-price {
+                color: var(--secondary-color);
+                font-weight: bold;
+                font-size: 1.1rem;
+            }
+            
+            .product-meta {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+        `;
+        document.head.appendChild(priceStyle);
+    </script>
+    
+    <!-- بوت استراپ JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
